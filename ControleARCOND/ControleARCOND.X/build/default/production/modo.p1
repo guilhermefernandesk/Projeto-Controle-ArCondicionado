@@ -1,0 +1,98 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"7 ./lcd.h
+[; ;./lcd.h: 7:   void lcdPosition(int line, int col);
+[v _lcdPosition `(v ~T0 @X0 0 ef2`i`i ]
+"5
+[; ;./lcd.h: 5:   void lcdString(char msg[]);
+[v _lcdString `(v ~T0 @X0 0 ef1`*uc ]
+"4
+[; ;./lcd.h: 4:   void lcdChar(char value);
+[v _lcdChar `(v ~T0 @X0 0 ef1`uc ]
+"8 modo.c
+[; ;modo.c: 8: void modo (int m){
+[v _modo `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _modo ]
+[v _m `i ~T0 @X0 1 r1 ]
+[f ]
+"9
+[; ;modo.c: 9:     lcdPosition(1,11);
+[e ( _lcdPosition (2 , -> 1 `i -> 11 `i ]
+"10
+[; ;modo.c: 10:     switch(m){
+[e $U 3  ]
+{
+"11
+[; ;modo.c: 11:         case 0:
+[e :U 4 ]
+"12
+[; ;modo.c: 12:             lcdString("Auto");
+[e ( _lcdString (1 :s 1C ]
+"13
+[; ;modo.c: 13:         break;
+[e $U 2  ]
+"14
+[; ;modo.c: 14:         case 1:
+[e :U 5 ]
+"15
+[; ;modo.c: 15:             lcdString("*");
+[e ( _lcdString (1 :s 2C ]
+"16
+[; ;modo.c: 16:             lcdString("   ");
+[e ( _lcdString (1 :s 3C ]
+"18
+[; ;modo.c: 18:         break;
+[e $U 2  ]
+"19
+[; ;modo.c: 19:         case 2:
+[e :U 6 ]
+"20
+[; ;modo.c: 20:             lcdChar(4);
+[e ( _lcdChar (1 -> -> 4 `i `uc ]
+"21
+[; ;modo.c: 21:             lcdChar(4);
+[e ( _lcdChar (1 -> -> 4 `i `uc ]
+"22
+[; ;modo.c: 22:             lcdString("  ");
+[e ( _lcdString (1 :s 4C ]
+"23
+[; ;modo.c: 23:         break;
+[e $U 2  ]
+"24
+[; ;modo.c: 24:         case 3:
+[e :U 7 ]
+"25
+[; ;modo.c: 25:             lcdChar(5);
+[e ( _lcdChar (1 -> -> 5 `i `uc ]
+"26
+[; ;modo.c: 26:             lcdString("   ");
+[e ( _lcdString (1 :s 5C ]
+"27
+[; ;modo.c: 27:         break;
+[e $U 2  ]
+"28
+[; ;modo.c: 28:         default:
+[e :U 8 ]
+"29
+[; ;modo.c: 29:         break;
+[e $U 2  ]
+"31
+[; ;modo.c: 31:     }
+}
+[e $U 2  ]
+[e :U 3 ]
+[e [\ _m , $ -> 0 `i 4
+ , $ -> 1 `i 5
+ , $ -> 2 `i 6
+ , $ -> 3 `i 7
+ 8 ]
+[e :U 2 ]
+"32
+[; ;modo.c: 32: }
+[e :UE 1 ]
+}
+[a 1C 65 117 116 111 0 ]
+[a 2C 42 0 ]
+[a 3C 32 32 32 0 ]
+[a 5C 32 32 32 0 ]
+[a 4C 32 32 0 ]
